@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Koduru Madhan Kumar Reddy - Full Stack Developer specializing in Angular and Java. View my portfolio, projects, and technical expertise.">
+    <meta name="keywords" content="Full Stack Developer, Angular, Java, Spring Boot, Oracle Database, TypeScript">
+    <title>Madhan Kumar Reddy - Full Stack Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #007bff;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --dark: #343a40;
+            --light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--dark);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            background: var(--primary);
+            height: 100%;
+            border-radius: 5px;
+            transition: width 2s ease;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--light);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Image Carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .project-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Carousel Controls */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 2;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: white;
+        }
+
+        /* Image Thumbnails */
+        .image-thumbnails {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            overflow-x: auto;
+        }
+
+        .thumbnail {
+            min-width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--primary);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-buttons .btn {
+            font-size: 0.9rem;
+            padding: 0.5rem 1.5rem;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: var(--white);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 0 auto;
+        }
+
+        /* Responsive adjustments for cert-grid */
+        @media (max-width: 768px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+                /* Single column on mobile */
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* Maintain 2 columns on tablet and desktop */
+            }
+        }
+
+        .cert-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cert-placeholder {
+            text-align: center;
+            color: #999;
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1rem 0;
+            width: 50%;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            text-align: left;
+            padding-left: 3rem;
+            padding-right: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 1.5rem;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+            right: auto;
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: white;
+            font-size: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 3rem;
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+                right: auto !important;
+            }
+
+            .project-buttons {
+                flex-direction: column;
+            }
+
+            .project-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h3>Madhan Kumar Reddy</h3>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm Madhan Kumar Reddy</h1>
+        <p>Full-Stack Developer | Angular & Java Specialist</p>
+        <p style="font-size: 1.2rem;">Building scalable web applications that make a difference</p>
+        <div style="margin-top: 2rem;">
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="Koduru_MadhanKumarReddy_Resume.pdf" class="btn btn-outline" download>Download Resume</a>
+        </div>
+        <p style="font-size: 0.9em; color: gray;"><i>Last updated: July, 2025</i></p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <i class="fas fa-user"></i>
+            </div>
+            <div>
+                <p>Passionate Full-Stack Developer with expertise in Angular and Java Spring Boot. Oracle Certified Java
+                    SE 11 Developer with a proven track record of delivering high-quality applications. Star Performer
+                    Award recipient recognized for exceptional contributions to team success.</p>
+                <br>
+                <h4>Quick Facts:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✓ 2+ years of professional experience</li>
+                    <li>✓ 2 major healthcare/community service applications developed during Training Period</li>
+                    <li>✓ Angular & Java Certified Professional</li>
+                    <li>✓ Star Performer Award Winner</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend Development</h3>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Angular</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>TypeScript</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>JavaScript</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>HTML/CSS</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend Development</h3>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Java</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Spring Boot</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>RESTful APIs</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Oracle Database</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <!-- Project 1: Patient-Doctor Platform -->
+            <div class="project-card">
+                <div class="carousel-container" id="carousel1">
+                    <div class="carousel-track">
+                        <!-- Add your project images here -->
+                        <div class="carousel-slide">
+                            <img src="images/patient-doctor/login.png" alt="Login Screen"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-stethoscope"></i>
+                                <p>Login Screen</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/patient-doctor/dashboard.png" alt="Dashboard"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Dashboard</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/patient-doctor/appointment.png" alt="Appointment Booking"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-calendar-check"></i>
+                                <p>Appointment Booking</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/patient-doctor/consultation.png" alt="Video Consultation"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-video"></i>
+                                <p>Video Consultation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveCarousel('carousel1', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" onclick="moveCarousel('carousel1', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators" id="indicators1">
+                        <span class="indicator active" onclick="goToSlide('carousel1', 0)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel1', 1)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel1', 2)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel1', 3)"></span>
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="image-thumbnails">
+                    <div class="thumbnail active" onclick="goToSlide('carousel1', 0)">
+                        <img src="images/patient-doctor/login.png" alt="Login"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#667eea;display:flex;align-items:center;justify-content:center;color:white;\'>1</div>'">
+                    </div>
+                    <div class="thumbnail" onclick="goToSlide('carousel1', 1)">
+                        <img src="images/patient-doctor/dashboard.png" alt="Dashboard"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#667eea;display:flex;align-items:center;justify-content:center;color:white;\'>2</div>'">
+                    </div>
+                    <div class="thumbnail" onclick="goToSlide('carousel1', 2)">
+                        <img src="images/patient-doctor/appointment.png" alt="Appointment"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#667eea;display:flex;align-items:center;justify-content:center;color:white;\'>3</div>'">
+                    </div>
+                    <div class="thumbnail" onclick="goToSlide('carousel1', 3)">
+                        <img src="images/patient-doctor/consultation.png" alt="Consultation"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#667eea;display:flex;align-items:center;justify-content:center;color:white;\'>4</div>'">
+                    </div>
+                </div>
+
+                <div class="project-content">
+                    <h3>Patient-Doctor Connection Platform</h3>
+                    <p>A comprehensive telemedicine solution connecting patients with healthcare providers for online
+                        consultations.</p>
+
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Appointment scheduling</li>
+                        <li>Doctor consultations</li>
+                        <li>Prescription management</li>
+                        <li>Patient health records</li>
+                    </ul>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">Role Based Login</span>
+                        <span class="tech-tag">Nginx</span>
+                    </div>
+
+                    <h4>Source Code:</h4>
+                    <p><b>Note:</b> This project is currently in private Repository. To access the source code, please send a mail to <a href="https://mail.google.com/mail/?view=cm&fs=1&to=madhankumarreddy2001@gmail.com" target="_blank">madhankumarreddy2001@gmail.com</a>.</p>
+                    <div class="project-buttons">
+                        <a href="https://github.com/Madhankumarreddykoduru/finalcode" class="btn btn-outline"
+                            style="color: var(--primary); border-color: var(--primary);">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Blood Donation System -->
+            <div class="project-card">
+                <div class="carousel-container" id="carousel2">
+                    <div class="carousel-track">
+                        <!-- Add your project images here -->
+                        <div class="carousel-slide">
+                            <img src="images/blood-donation/home.jpg" alt="Home Page"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-tint"></i>
+                                <p>Home Page</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/blood-donation/donor-search.jpg" alt="Donor Search"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-search-location"></i>
+                                <p>Donor Search</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/blood-donation/request-blood.jpg" alt="Blood Request"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-hand-holding-medical"></i>
+                                <p>Blood Request</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/blood-donation/donor-profile.jpg" alt="Donor Profile"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-placeholder" style="display:none;">
+                                <i class="fas fa-user-circle"></i>
+                                <p>Donor Profile</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveCarousel('carousel2', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" onclick="moveCarousel('carousel2', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators" id="indicators2">
+                        <span class="indicator active" onclick="goToSlide('carousel2', 0)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel2', 1)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel2', 2)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel2', 3)"></span>
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="image-thumbnails">
+                    <div class="thumbnail active" onclick="goToSlide('carousel2', 0)">
+                        <img src="images/blood-donation/home.jpg" alt="Home"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#764ba2;display:flex;align-items:center;justify-content:center;color:white;\'>1</div>'">
+                    </div>
+                    <div class="thumbnail" onclick="goToSlide('carousel2', 1)">
+                        <img src="images/blood-donation/donor-search.jpg" alt="Search"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#764ba2;display:flex;align-items:center;justify-content:center;color:white;\'>2</div>'">
+                    </div>
+                    <div class="thumbnail" onclick="goToSlide('carousel2', 2)">
+                        <img src="images/blood-donation/request-blood.jpg" alt="Request"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#764ba2;display:flex;align-items:center;justify-content:center;color:white;\'>3</div>'">
+                    </div>
+                    <div class="thumbnail" onclick="goToSlide('carousel2', 3)">
+                        <img src="images/blood-donation/donor-profile.jpg" alt="Profile"
+                            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#764ba2;display:flex;align-items:center;justify-content:center;color:white;\'>4</div>'">
+                    </div>
+                </div>
+
+                <div class="project-content">
+                    <h3>Blood Donation Management System</h3>
+                    <p>Community service application connecting blood donors with recipients in need using geolocation
+                        technology.</p>
+
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Collecting Donor Details</li>
+                        <li>Real-time blood request notifications</li>
+                        <li>Donor eligibility Checking</li>
+                        <li>Search Donors</li>
+                    </ul>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">GCP</span>
+                        <span class="tech-tag">Oracle DB</span>
+                    </div>
+
+                    <h4>Source Code:</h4>
+                    <p><b>Note:</b> This project is currently in private Repository. To access the source code, please send a mail to <a href="https://mail.google.com/mail/?view=cm&fs=1&to=madhankumarreddy2001@gmail.com" target="_blank">madhankumarreddy2001@gmail.com</a>.</p>
+                    <div class="project-buttons">
+                        <!-- <a href="#" class="btn">Live Demo</a> -->
+                        <a href="https://github.com/Madhankumarreddykoduru/AngularProject_Final" class="btn btn-outline"
+                            style="color: var(--primary); border-color: var(--primary);">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <h2>Certifications & Achievements</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-image">
+                    <!-- Replace src with your actual Oracle certification image -->
+                    <img src="images/oracle-java-cert.jpg" alt="Oracle Java Certification"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="cert-placeholder" style="display:none;">
+                        <div class="cert-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <p>Oracle Certification</p>
+                    </div>
+                </div>
+                <h3>Oracle Certified Professional</h3>
+                <p>Java SE 11 Developer</p>
+                <p class="cert-date">Oracle University</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-image">
+                    <!-- Replace src with your actual Angular certification image -->
+                    <img src="images/angular-cert.jpg" alt="Angular Certification"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="cert-placeholder" style="display:none;">
+                        <div class="cert-icon">
+                            <i class="fab fa-angular"></i>
+                        </div>
+                        <p>Angular Certification</p>
+                    </div>
+                </div>
+                <h3>Angular Certification</h3>
+                <p>External Training Program</p>
+                <p class="cert-date">Company-Sponsored</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-image">
+                    <!-- Replace src with your actual award image -->
+                    <img src="images/star-performer-award.jpg" alt="Star Performer Award"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="cert-placeholder" style="display:none;">
+                        <div class="cert-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <p>Star Performer</p>
+                    </div>
+                </div>
+                <h3>Star Performer Award</h3>
+                <p>Excellence in Performance</p>
+                <p class="cert-date">2024</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-image">
+                    <!-- Replace src with your actual Oracle certification image -->
+                    <img src="images/maven.jpg" alt="Maven Certification"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="cert-placeholder" style="display:none;">
+                        <div class="cert-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <p>Udemy Maven Certification</p>
+                    </div>
+                </div>
+                <h3>Udemy Certification</h3>
+                <p>Maven Certification</p>
+                <p class="cert-date">Udemy</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-image">
+                    <!-- Replace src with your actual Oracle certification image -->
+                    <img src="images/java-udemy.jpg" alt="java-udemy Certification"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="cert-placeholder" style="display:none;">
+                        <div class="cert-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <p>Udemy Java17 Certification</p>
+                    </div>
+                </div>
+                <h3>Udemy Certification</h3>
+                <p>Java17 Masterclass Certification</p>
+                <p class="cert-date">Udemy</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-image">
+                    <!-- Replace src with your actual Oracle certification image -->
+                    <img src="images/Quarkus.jpg" alt="Quarkus Certification"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="cert-placeholder" style="display:none;">
+                        <div class="cert-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <p>Udemy Quarkus Certification</p>
+                    </div>
+                </div>
+                <h3>Udemy Certification</h3>
+                <p>Quarkus Certification</p>
+                <p class="cert-date">Udemy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience">
+        <h2>Professional Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>Associate Software Engineer</h3>
+                <p>Full Stack Developer</p>
+                <p style="color: var(--secondary);">Aug 2023 - Present</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>Angular Specialist Intern</h3>
+                <p>Completed with Certification</p>
+                <p style="color: var(--secondary);">Feb 2023 - July 2023</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>Bachelor's Degree</h3>
+                <p>Computer Science and Engineering</p>
+                <p style="color: var(--secondary);">Graduated</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Let's Connect</h2>
+        <p>I'm always interested in new opportunities and collaborations</p>
+        <div class="contact-links">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=madhankumarreddy2001@gmail.com" target="_blank" ><i class="fas fa-envelope"></i></a>
+            <a href="tel:+919840795117"><i class="fas fa-phone"></i></a>
+            <a href="https://www.linkedin.com/in/kodurumadhan-kumarreddy-4a4386242" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Madhankumarreddykoduru" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p style="margin-top: 2rem;">© 2025 Koduru Madhan Kumar Reddy. All rights reserved.</p>
+    </section>
+
+    <script>
+        // Carousel functionality
+        const carousels = {};
+
+        // Initialize carousels
+        document.querySelectorAll('.carousel-container').forEach(carousel => {
+            const id = carousel.id;
+            carousels[id] = {
+                currentSlide: 0,
+                totalSlides: carousel.querySelectorAll('.carousel-slide').length
+            };
+        });
+
+        function moveCarousel(carouselId, direction) {
+            const carousel = carousels[carouselId];
+            const container = document.getElementById(carouselId);
+            const track = container.querySelector('.carousel-track');
+            const indicators = container.parentElement.querySelectorAll('.indicator');
+            const thumbnails = container.parentElement.querySelectorAll('.thumbnail');
+
+            carousel.currentSlide += direction;
+
+            if (carousel.currentSlide < 0) {
+                carousel.currentSlide = carousel.totalSlides - 1;
+            } else if (carousel.currentSlide >= carousel.totalSlides) {
+                carousel.currentSlide = 0;
+            }
+
+            updateCarousel(carouselId);
+        }
+
+        function goToSlide(carouselId, slideIndex) {
+            carousels[carouselId].currentSlide = slideIndex;
+            updateCarousel(carouselId);
+        }
+
+        function updateCarousel(carouselId) {
+            const carousel = carousels[carouselId];
+            const container = document.getElementById(carouselId);
+            const track = container.querySelector('.carousel-track');
+            const indicators = container.parentElement.querySelectorAll('.indicator');
+            const thumbnails = container.parentElement.querySelectorAll('.thumbnail');
+
+            // Update track position
+            track.style.transform = `translateX(-${carousel.currentSlide * 100}%)`;
+
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === carousel.currentSlide);
+            });
+
+            // Update thumbnails
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.classList.toggle('active', index === carousel.currentSlide);
+            });
+        }
+
+        // Auto-play carousel (optional)
+        function autoPlayCarousel(carouselId, interval = 5000) {
+            setInterval(() => {
+                moveCarousel(carouselId, 1);
+            }, interval);
+        }
+
+        // Enable auto-play for carousels
+        autoPlayCarousel('carousel1', 5000);
+        autoPlayCarousel('carousel2', 5000);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate skills on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.querySelector('#skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Add keyboard navigation for carousels
+        document.addEventListener('keydown', (e) => {
+            const activeElement = document.activeElement;
+            const carouselContainer = activeElement.closest('.project-card');
+
+            if (carouselContainer) {
+                const carouselId = carouselContainer.querySelector('.carousel-container').id;
+                if (e.key === 'ArrowLeft') {
+                    moveCarousel(carouselId, -1);
+                } else if (e.key === 'ArrowRight') {
+                    moveCarousel(carouselId, 1);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
